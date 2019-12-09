@@ -1,0 +1,183 @@
+<!doctype html>
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi">
+	<head>
+			<meta charset="utf-8">
+			<title>Color Game</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta content='width=1280, user-scalable=0' name='viewport' />
+			<script src="/libs/qimessaging/1.0/qimessaging.js"></script>
+		
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ubuntu" rel="stylesheet"> 
+		
+		<link rel="apple-touch-icon" sizes="57x57" href="<?= SITEPATH ?>img/ico/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?= SITEPATH ?>img/ico/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?= SITEPATH ?>img/ico/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?= SITEPATH ?>img/ico/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?= SITEPATH ?>img/ico/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?= SITEPATH ?>img/ico/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?= SITEPATH ?>img/ico/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?= SITEPATH ?>img/ico/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?= SITEPATH ?>img/ico/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="<?= SITEPATH ?>img/ico/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?= SITEPATH ?>img/ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="<?= SITEPATH ?>img/ico/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?= SITEPATH ?>img/ico/favicon-16x16.png">
+		<link rel="manifest" href="<?= SITEPATH ?>img/ico/manifest.json">
+
+
+		<link href="site/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="site/css/style.css" rel="stylesheet" type="text/css">	
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"</script>
+		<script src="site/js/bootstrap.min.js"></script>
+		<link href="site/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+		
+		<style>
+			.rainbow {
+				background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+				background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+				color:transparent;
+				-webkit-background-clip: text;
+				background-clip: text;
+			}
+			input[type=text]{
+				color: black;
+			}
+			.row{
+				color:black;
+			}
+		</style>
+	</head>
+	
+
+<body style="medium-top-padding">
+	<div class="container">
+		<div class="row">
+			<h1 id="title" class="rainbow">Color Game</h1>
+		</div>
+		<div class="row" id="player_container">
+			<div class="row" style="color:black">First let me know your names by inserting your names on the text fields below</div>
+			<div class="col-sm-4">
+				<a>Player 1</a><br>
+				<input type="text" id="player1"/>
+			</div>
+			<div class="col-sm-15">
+				<a>Player 2</a><br>
+				<input type="text" id="player2"/>
+			</div>
+			<div class="row">
+				<button onclick="start_clicked()" id="start_btn" href="players.html">Continue</button>
+			</div>
+		</div>
+		<div class="row" id="statement_container" style="display:none">
+			<h2 id="instruction"></h2>
+			<div class="row col-sm-5">
+				<ul id="statements" style="text-align:left">
+					<li>My occupation is...</li>
+					<li>I work at...</li>
+					<li>I am from...</li>
+					<li>My research field/interest is...</li>
+					<li>What I enjoy most about my job is...</li>
+					<li>My hobby is...</li>
+					<li>The highlight of the day was...</li>
+					<li>My educational background is...</li>
+					<li>I am here today to...</li>
+					<li>I like to travel to...</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row col-sm-3" id="timer" style="display:none"></div>
+		<div class="row col-sm-10" id="skip_btn"><a  onclick="colorPick()">Skip</a></div>
+		<div class="row" id="pick_instruction" style="display:none"></div>
+		<div class="row" id="color_btns" style="display:none">
+			<a id="orange" class="link-round color-orange whiteoutline box-shadow text-center app_select_elem" onclick="color_click('orange')">
+				<h2>Orange</h2>
+			</a>
+			<a id="yellow" class="link-round color-yellow whiteoutline box-shadow text-center app_select_elem" onclick="color_click('yellow')">
+				<h2>Yellow</h2>
+			</a>
+			<a id="blue" class="link-round color-blue whiteoutline box-shadow text-center app_select_elem" onclick="color_click('blue')">
+				<h2>Blue</h2>
+			</a><br>
+			<a id="pink" class="link-round color-pink whiteoutline box-shadow text-center app_select_elem" onclick="color_click('pink')">
+				<h2>Pink</h2>
+			</a>
+			<a id="green" class="link-round color-green whiteoutline box-shadow text-center app_select_elem" onclick="color_click('green')">
+				<h2>Green</h2>
+			</a>
+			<a id="brown" class="link-round color-brown whiteoutline box-shadow text-center app_select_elem" onclick="color_click('brown')">
+				<h2>Brown</h2>
+			</a>
+			<a id="purple" class="link-round color-purple whiteoutline box-shadow text-center app_select_elem" onclick="color_click('purple')">
+				<h2>Purple</h2>
+			</a>
+			<a id="red" class="link-round color-red whiteoutline box-shadow text-center app_select_elem" onclick="color_click('red')">
+				<h2>Red</h2>
+			</a>
+			<a id="olive" class="link-round color-olive whiteoutline box-shadow text-center app_select_elem" onclick="color_click('olive')">
+				<h2>Olive</h2>
+			</a>
+			<a id="lime" class="link-round color-lime whiteoutline box-shadow text-center app_select_elem" onclick="color_click('lime')">
+				<h2>Lime</h2>
+			</a>
+		</div>
+		
+	</div>
+	
+	
+	<script>
+		//var session = new QiSession();
+		var timer_;
+		function start_clicked(){
+			var player1 = document.getElementById("player1").value;
+			var player2 = document.getElementById("player2").value;
+			
+			if(player1 == ""){
+				console.log("Invalid Player1 name inserted....");
+				return;
+			}
+			if(player2 == ""){
+				console.log("Invalid Player2 name inserted....");
+				return;
+			}
+			document.getElementById("player_container").style = "display:none";
+			document.getElementById("statement_container").style = "display:block";
+			document.getElementById("timer").style = "display:block";
+			document.getElementById("instruction").innerText  = player1 + " please start completing these statements: ";
+			startTimer(120, document.getElementById("timer"));
+		}	
+		
+		function startTimer(duration, display) {
+			var timer = duration, minutes, seconds;
+			timer_ = setInterval(function () {
+				minutes = parseInt(timer / 60, 10)
+				seconds = parseInt(timer % 60, 10);
+
+				minutes = minutes < 10 ? "0" + minutes : minutes;
+				seconds = seconds < 10 ? "0" + seconds : seconds;
+
+				display.textContent = minutes + ":" + seconds;
+
+				if (--timer < 0) {
+					stopTimer(display);
+					clearInterval(timer_);
+				}
+			}, 1000);
+		}
+		
+		function stopTimer(display){
+			display.style.display = "none";
+			clearInterval(timer_);
+		}
+		
+		function colorPick(){
+			console.log("Skip pressed");
+			stopTimer(document.getElementById("timer"));
+			document.getElementById("statement_container").style.display = "none";
+			document.getElementById("color_btns").style.display = "block";
+			document.getElementById("pick_instruction").style.display = "block";
+			document.getElementById("pick_instruction").style.innerText = player1 + " select five color of your choice";
+			document.getElementById("skip_btn").style.display = "none";
+		}
+	</script>
+</body>
+</html>

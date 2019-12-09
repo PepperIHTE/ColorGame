@@ -1,0 +1,73 @@
+<!doctype html>
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi">
+	<head>
+			<meta charset="utf-8">
+			<title>Color Game</title>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta content='width=1280, user-scalable=0' name='viewport' />
+			<script src="/libs/qimessaging/1.0/qimessaging.js"></script>
+		
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Ubuntu" rel="stylesheet"> 
+		
+		<link rel="apple-touch-icon" sizes="57x57" href="<?= SITEPATH ?>img/ico/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="<?= SITEPATH ?>img/ico/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?= SITEPATH ?>img/ico/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="<?= SITEPATH ?>img/ico/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?= SITEPATH ?>img/ico/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?= SITEPATH ?>img/ico/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?= SITEPATH ?>img/ico/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="<?= SITEPATH ?>img/ico/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?= SITEPATH ?>img/ico/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="<?= SITEPATH ?>img/ico/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?= SITEPATH ?>img/ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="<?= SITEPATH ?>img/ico/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?= SITEPATH ?>img/ico/favicon-16x16.png">
+		<link rel="manifest" href="<?= SITEPATH ?>img/ico/manifest.json">
+
+
+		<link href="site/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="site/css/style.css" rel="stylesheet" type="text/css">	
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"</script>
+		<script src="site/js/bootstrap.min.js"></script>
+		<link href="site/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet">
+		
+		<style>
+			.rainbow {
+				background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+				background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+				color:transparent;
+				-webkit-background-clip: text;
+				background-clip: text;
+			}
+		</style>
+	</head>
+	
+
+<body style="medium-top-padding">
+	<div class="container">
+		<div class="row">
+			<h1 id="title" class="rainbow">Color Game</h1>
+		</div>
+		<div class="row" id="description">
+			<h3 style="color:black">This is a fun networking game which requires at least two players<br>Once you have a friend to play with, click the Start button</h3>
+		</div>
+		<div class="row">
+			<button onclick="start_clicked()" id="start_btn" >Start</button>
+		</div>
+	</div>
+	
+	
+	<script>
+		/*var session = new QiSession();
+		function start_clicked(){
+			session.service('ALMemory').done(function(ALMemory) {
+				ALMemory.raiseEvent("colorgame/start_clicked", 1);
+			});
+		}*/
+		function start_clicked(){
+			console.log("Hello")
+			location.href="player.html"
+		}
+	</script>
+</body>
+</html>
